@@ -1,6 +1,7 @@
 @import "_reset.scss";
 
 $txt_col: #333;
+$light_color: #d9d9d9;
 
 @function mod($n) {
   @return $n * 12px;
@@ -91,6 +92,31 @@ article {
     &:after {
       right: mod(-1);
       transition: all 0.1s ease;
+    }
+  }
+}
+
+#quest header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: mod(3/2) mod(2);
+  background: white;
+  box-shadow: 0 0 8px $light_color;
+  border-top: 1px solid $light_color;
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  .text-headings {
+    display: flex;
+    h2 {
+      &:before {
+        padding: 0 mod(1);
+        content: "·";
+      }
     }
   }
 }
