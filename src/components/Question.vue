@@ -22,6 +22,23 @@
           {{currentQuestion.main_text}}
         </p>
         <p class="sub-text" v-if="currentQuestion.sub_text">{{currentQuestion.sub_text}}</p>
+        <div class="options-container radio-container" v-if="currentQuestion.type == 'radio'">
+          <label
+            v-bind:key="'_' + index"
+            :for="'radio-' + index"
+            v-for="(r, index) in currentQuestion.options"
+          >
+            <input
+              :id="'radio-' + index"
+              type="radio"
+              :name="currentQuestion.name"
+              :value="r.value"
+            >
+            {{r.text}}
+          </label>
+        </div>
+        <template v-if="currentQuestion.type == 'checkbox'"></template>
+        <template v-if="currentQuestion.type == 'text_input'"></template>
       </div>
     </article>
   </div>

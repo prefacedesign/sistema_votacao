@@ -164,3 +164,29 @@ article {
     }
   }
 }
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: mod(3);
+
+  label {
+    border: 2px solid $light_color;
+    display: flex;
+    align-items: center;
+    padding: 0 mod(2) 0 mod(4/3);
+    height: mod(4);
+    cursor: pointer;
+    input {
+      margin-right: mod(4/3);
+    }
+    & + label {
+      margin-top: mod(3/2);
+    }
+  }
+  &.radio-container {
+    label {
+      border-radius: mod(2/3);
+    }
+  }
+}
