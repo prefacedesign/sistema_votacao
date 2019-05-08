@@ -1,15 +1,20 @@
+@function mod($n) {
+  @return $n * 12px;
+}
+
 @mixin default-font {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: mod(4/3);
+  line-height: mod(2);
 }
 
 @mixin big-font {
-  font-size: 24px;
-  line-height: 36px;
+  font-size: mod(2);
+  line-height: mod(3);
 }
 
 body {
   font-family: "IBM Plex Sans", sans-serif;
+  @include default-font;
   padding: 0;
   margin: 0;
 
@@ -28,10 +33,20 @@ body {
 }
 
 #router-view {
-  @media screen and (min-width: 786px) {
-    width: 738px;
+  @media screen and (min-width: 784px) {
+    width: 736px;
   }
-  @media screen and (max-width: 786px) {
-    width: calc(100vw - 48px);
+  @media screen and (max-width: 784px) {
+    width: calc(100vw - #{mod(4)});
   }
+  padding: mod(10) mod(2);
+}
+
+h1 {
+  @include big-font;
+  font-weight: 700;
+}
+h2 {
+  @include big-font;
+  font-weight: 400;
 }
