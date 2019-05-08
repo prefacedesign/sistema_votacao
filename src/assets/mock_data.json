@@ -17,18 +17,29 @@
       "type": "radio",
       "main_text": "Lorem Ipsum",
       "sub_text": "Lorem Ipsum",
-      "options": ["Option 1", "Option 2", "Option 3"]
+      "name": "pg1",
+      "options": [
+        { "text": "Option 1", "value": "1" },
+        { "text": "Option 2", "value": "2" },
+        { "text": "Option 3", "value": "3" }
+      ]
     },
     {
       "type": "checkbox",
       "main_text": "Lorem Ipsum",
       "sub_text": "Lorem Ipsum",
-      "options": ["Option 1", "Option 2", "Option 3"]
+      "name": "pg2",
+      "options": [
+        { "text": "Option 1", "value": "1" },
+        { "text": "Option 2", "value": "2" },
+        { "text": "Option 3", "value": "3" }
+      ]
     },
     {
       "type": "text_input",
       "main_text": "Lorem Ipsum",
-      "sub_text": ""
+      "sub_text": "",
+      "name": "pg3"
     }
   ]
 }
