@@ -6,10 +6,10 @@
           <h1>{{json.form_heading}}</h1>
           <h2>{{json.form_sub_heading}}</h2>
         </div>
-        <div class="progress">
-          <p>40%</p>
+        <div class="progress-bar-container">
+          <p>{{percentageComplete}}%</p>
           <div class="progress-bar">
-            <div class="completed-rate"></div>
+            <div class="completed-rate" :style="{width: percentageComplete + '%'}"></div>
           </div>
         </div>
       </header>
@@ -27,6 +27,11 @@ export default {
     return {
       json: mock_json
     };
+  },
+  computed: {
+    percentageComplete: function() {
+      return 10;
+    }
   },
   name: "Question"
 };

@@ -119,4 +119,28 @@ article {
       }
     }
   }
+
+  .progress-bar-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .progress-bar {
+    $h: mod(1/2);
+    height: $h;
+    border-radius: $h;
+    margin-left: mod(3/2);
+    width: mod(12);
+    background: $light_color;
+    position: relative;
+    overflow: hidden;
+    .completed-rate {
+      top: 0;
+      left: 0;
+      height: $h;
+      border-radius: $h;
+      background: black;
+      width: 5%;
+    }
+  }
 }
