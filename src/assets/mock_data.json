@@ -1,0 +1,34 @@
+{
+  "form_heading": "Lorem Ipsum",
+  "form_sub_heading": "Lorem Ipsum",
+  "intro": {
+    "text": "Lorem Ipsum"
+  },
+  "ending": {
+    "text": "Lorem Ipsum"
+  },
+  "content_flow": [
+    {
+      "type": "text",
+      "main_text": "Lorem Ipsum",
+      "sub_text": "Lorem Ipsum"
+    },
+    {
+      "type": "radio",
+      "main_text": "Lorem Ipsum",
+      "sub_text": "Lorem Ipsum",
+      "options": ["Option 1", "Option 2", "Option 3"]
+    },
+    {
+      "type": "checkbox",
+      "main_text": "Lorem Ipsum",
+      "sub_text": "Lorem Ipsum",
+      "options": ["Option 1", "Option 2", "Option 3"]
+    },
+    {
+      "type": "text_input",
+      "main_text": "Lorem Ipsum",
+      "sub_text": ""
+    }
+  ]
+}
