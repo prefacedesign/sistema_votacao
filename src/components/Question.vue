@@ -34,9 +34,6 @@ export default {
       if (!current) {
         return 0;
       }
-
-      console.log(current);
-
       return Math.round((100 * current) / this.json.content_flow.length);
     }
   },
