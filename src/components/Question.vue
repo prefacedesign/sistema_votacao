@@ -42,6 +42,14 @@
         <template v-if="currentQuestion.type == 'checkbox'"></template>
         <template v-if="currentQuestion.type == 'text_input'"></template>
       </div>
+
+      <template v-if="this.$route.params.index < json.content_flow.length - 1">
+        <router-link
+          class="next-question"
+          :to="'/quest/' + (parseInt(this.$route.params.index)+1)"
+        >Próxima pergunta</router-link>
+      </template>
+      <template v-else>Acabou!</template>
     </article>
   </div>
 </template>
