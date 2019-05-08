@@ -1,3 +1,5 @@
+@import "_reset.scss";
+
 @function mod($n) {
   @return $n * 12px;
 }
