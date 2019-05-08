@@ -1,7 +1,13 @@
 <template>
   <div id="intro">
-    <p>{{json.intro.text}}</p>
-    <router-link to="/quest/1">link</router-link>
+    <article>
+      <header>
+        <h1>{{json.form_heading}}</h1>
+        <h2>{{json.form_sub_heading}}</h2>
+      </header>
+      <p v-for="paragraph in json.intro.text">{{paragraph}}</p>
+    </article>
+    <!-- <router-link to="/quest/1">link</router-link> -->
   </div>
 </template>
 
