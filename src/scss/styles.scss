@@ -20,7 +20,6 @@ body {
   padding: 0;
   margin: 0;
 
-  min-width: 100vw;
   min-height: 100vh;
 
   display: flex;
@@ -32,16 +31,17 @@ body {
 
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 #router-view {
   @media screen and (min-width: 784px) {
     width: 736px;
+    padding: mod(10) mod(2);
   }
   @media screen and (max-width: 784px) {
-    width: calc(100vw - #{mod(4)});
+    padding: mod(6) mod(2);
   }
-  padding: mod(10) mod(2);
 }
 
 h1 {
@@ -51,4 +51,13 @@ h1 {
 h2 {
   @include big-font;
   font-weight: 400;
+}
+
+article {
+  header {
+    margin-bottom: mod(4);
+  }
+  p + p {
+    margin-top: mod(1);
+  }
 }
