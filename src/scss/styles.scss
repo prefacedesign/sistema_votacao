@@ -45,10 +45,10 @@ body {
 #router-view {
   @media screen and (min-width: $breakpoint) {
     width: 736px;
-    padding: mod(10) mod(2);
+    padding: mod(10) mod(2) mod(12);
   }
   @media screen and (max-width: $breakpoint) {
-    padding: mod(6) mod(2);
+    padding: mod(6) mod(2) mod(12);
   }
 }
 
@@ -99,6 +99,7 @@ article {
 }
 
 #quest header {
+  z-index: 1;
   position: fixed;
   left: 0;
   right: 0;
