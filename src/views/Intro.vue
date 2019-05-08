@@ -1,6 +1,6 @@
 <template>
-  <div id="intro">
-    <article>
+  <div>
+    <article id="intro">
       <header>
         <h1>{{json.form_heading}}</h1>
         <h2>{{json.form_sub_heading}}</h2>

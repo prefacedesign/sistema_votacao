@@ -50,18 +50,23 @@ body {
 }
 
 h1 {
-  @include big-font;
   font-weight: 700;
 }
 h2 {
-  @include big-font;
   font-weight: 400;
 }
 
-article {
-  header {
-    margin-bottom: mod(4);
+#intro header {
+  margin-bottom: mod(4);
+  h1 {
+    @include big-font;
   }
+  h2 {
+    @include big-font;
+  }
+}
+
+article {
   p + p {
     margin-top: mod(1);
   }
