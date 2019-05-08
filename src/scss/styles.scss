@@ -183,6 +183,10 @@ article {
     & + label {
       margin-top: mod(3/2);
     }
+    &.selected {
+      border-color: black;
+      font-weight: 700;
+    }
   }
   &.radio-container {
     label {

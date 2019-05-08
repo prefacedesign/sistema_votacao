@@ -27,12 +27,14 @@
             v-bind:key="'_' + index"
             :for="'radio-' + index"
             v-for="(r, index) in currentQuestion.options"
+            :class="{ selected : selectedRadio == r.value }"
           >
             <input
               :id="'radio-' + index"
               type="radio"
               :name="currentQuestion.name"
               :value="r.value"
+              v-model="selectedRadio"
             >
             {{r.text}}
           </label>
@@ -49,7 +51,8 @@ import mock_json from "@/assets/mock_data.json";
 export default {
   data() {
     return {
-      json: mock_json
+      json: mock_json,
+      selectedRadio: ""
     };
   },
   computed: {
