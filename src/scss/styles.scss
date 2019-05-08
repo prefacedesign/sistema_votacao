@@ -1,5 +1,7 @@
 @import "_reset.scss";
 
+$txt_col: #333;
+
 @function mod($n) {
   @return $n * 12px;
 }
@@ -17,6 +19,9 @@
 body {
   font-family: "IBM Plex Sans", sans-serif;
   @include default-font;
+
+  color: $txt_col;
+
   padding: 0;
   margin: 0;
 
@@ -59,5 +64,28 @@ article {
   }
   p + p {
     margin-top: mod(1);
+  }
+}
+
+.next-question {
+  margin-top: mod(6);
+  float: right;
+  color: $txt_col;
+  text-decoration: none;
+  @include big-font;
+  &:after {
+    content: "→";
+    font-size: 32px;
+    padding-left: mod(1);
+    position: relative;
+    top: 4px;
+    right: 0;
+    transition: all 0.5s ease;
+  }
+  &:hover {
+    &:after {
+      right: mod(-1);
+      transition: all 0.1s ease;
+    }
   }
 }
