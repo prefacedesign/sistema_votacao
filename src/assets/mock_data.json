@@ -13,20 +13,19 @@
   },
   "content_flow": [
     {
+      "type": "radio",
+      "main_text": "Você está em um deserto andando sozinho e de repente olha para baixo e vê uma tartaruga. Você se abaixa e a vira de costas para cima. A barriga dela fica queimando ao sol e ela balança as pernas, tentando se virar, mas não consegue sem sua ajuda. Você vai ajudá-la?",
+      "name": "pg1",
+      "options": [
+        { "text": "Sim", "value": "1" },
+        { "text": "Não", "value": "2" },
+        { "text": "Prefiro não responder", "value": "3" }
+      ]
+    },
+    {
       "type": "text",
       "main_text": "Lorem Ipsum",
       "sub_text": "Lorem Ipsum"
-    },
-    {
-      "type": "radio",
-      "main_text": "Lorem Ipsum",
-      "sub_text": "Lorem Ipsum",
-      "name": "pg1",
-      "options": [
-        { "text": "Option 1", "value": "1" },
-        { "text": "Option 2", "value": "2" },
-        { "text": "Option 3", "value": "3" }
-      ]
     },
     {
       "type": "checkbox",

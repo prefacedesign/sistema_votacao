@@ -1,5 +1,7 @@
 @import "_reset.scss";
 
+$breakpoint: 784px;
+
 $txt_col: #333;
 $light_color: #d9d9d9;
 
@@ -41,11 +43,11 @@ body {
 }
 
 #router-view {
-  @media screen and (min-width: 784px) {
+  @media screen and (min-width: $breakpoint) {
     width: 736px;
     padding: mod(10) mod(2);
   }
-  @media screen and (max-width: 784px) {
+  @media screen and (max-width: $breakpoint) {
     padding: mod(6) mod(2);
   }
 }
@@ -141,6 +143,23 @@ article {
       border-radius: $h;
       background: black;
       width: 5%;
+    }
+  }
+}
+
+.question {
+  .main-text {
+    position: relative;
+    @include big-font;
+    span.question-number {
+      @media screen and (min-width: $breakpoint) {
+        position: absolute;
+        left: mod(-4);
+      }
+      @media screen and (max-width: $breakpoint) {
+        display: block;
+      }
+      color: $light_color;
     }
   }
 }

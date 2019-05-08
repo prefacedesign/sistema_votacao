@@ -13,10 +13,17 @@
           </div>
         </div>
       </header>
+      <div class="question">
+        <p class="main-text">
+          <span
+            v-if="this.$route.params.index"
+            class="question-number"
+          >{{parseInt(this.$route.params.index)+1}}.</span>
+          {{currentQuestion.main_text}}
+        </p>
+        <p class="sub-text" v-if="currentQuestion.sub_text">{{currentQuestion.sub_text}}</p>
+      </div>
     </article>
-
-    <!-- <p>{{this.$route.params.index}}</p>
-    <router-link :to="'/quest/' + (parseInt(this.$route.params.index)+1)">link</router-link>-->
   </div>
 </template>
 
@@ -29,6 +36,13 @@ export default {
     };
   },
   computed: {
+    currentQuestion: function() {
+      let current = this.$route.params.index;
+      if (!current) {
+        return "";
+      }
+      return this.json.content_flow[current];
+    },
     percentageComplete: function() {
       let current = this.$route.params.index;
       if (!current) {
