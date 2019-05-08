@@ -2,7 +2,7 @@
   "form_heading": "Lorem Ipsum",
   "form_sub_heading": "Lorem Ipsum",
   "intro": {
-    "text": "Lorem Ipsum"
+    "text": ["Lorem Ipsum", "Lorem Ipsum", "Lorem Ipsum"]
   },
   "ending": {
     "text": "Lorem Ipsum"
