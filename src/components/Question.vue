@@ -39,7 +39,23 @@
             {{r.text}}
           </label>
         </div>
-        <template v-if="currentQuestion.type == 'checkbox'"></template>
+        <div class="options-container checkbox-container" v-if="currentQuestion.type == 'checkbox'">
+          <label
+            v-bind:key="'_' + index"
+            :for="'checkbox-' + index"
+            v-for="(r, index) in currentQuestion.options"
+            :class="{ selected : selectedCheckboxes.includes(r.value) }"
+          >
+            <input
+              :id="'checkbox-' + index"
+              type="checkbox"
+              :name="currentQuestion.name + '-' + index"
+              :value="r.value"
+              v-model="selectedCheckboxes"
+            >
+            {{r.text}}
+          </label>
+        </div>
         <template v-if="currentQuestion.type == 'text_input'"></template>
       </div>
 
@@ -62,7 +78,8 @@ export default {
   data() {
     return {
       json: mock_json,
-      selectedRadio: ""
+      selectedRadio: "",
+      selectedCheckboxes: []
     };
   },
   computed: {
