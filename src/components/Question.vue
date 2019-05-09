@@ -1,7 +1,7 @@
 <template>
   <div>
     <article id="quest">
-      <header>
+      <header id="footer-head">
         <div class="text-headings">
           <h1>{{json.form_heading}}</h1>
           <h2>{{json.form_sub_heading}}</h2>
@@ -49,7 +49,9 @@
           :to="'/quest/' + (parseInt(this.$route.params.index)+1)"
         >Próxima pergunta</router-link>
       </template>
-      <template v-else>Acabou!</template>
+      <template v-else>
+        <router-link class="next-question" to="/fim">Terminar questionário</router-link>
+      </template>
     </article>
   </div>
 </template>

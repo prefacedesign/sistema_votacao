@@ -9,19 +9,19 @@ $light_color: #d9d9d9;
   @return $n * 12px;
 }
 
-@mixin default-font {
+.default-font {
   font-size: mod(4/3);
   line-height: mod(2);
 }
 
-@mixin big-font {
+.big-font {
   font-size: mod(2);
   line-height: mod(3);
 }
 
 body {
   font-family: "IBM Plex Sans", sans-serif;
-  @include default-font;
+  @extend .default-font;
 
   color: $txt_col;
 
@@ -62,10 +62,10 @@ h2 {
 #intro header {
   margin-bottom: mod(4);
   h1 {
-    @include big-font;
+    @extend .big-font;
   }
   h2 {
-    @include big-font;
+    @extend .big-font;
   }
 }
 
@@ -80,7 +80,7 @@ article {
   float: right;
   color: $txt_col;
   text-decoration: none;
-  @include big-font;
+  @extend .big-font;
   &:after {
     content: "→";
     font-size: 32px;
@@ -98,7 +98,7 @@ article {
   }
 }
 
-#quest header {
+#footer-head {
   z-index: 1;
   position: fixed;
   left: 0;
@@ -151,7 +151,7 @@ article {
 .question {
   .main-text {
     position: relative;
-    @include big-font;
+    @extend .big-font;
     span.question-number {
       @media screen and (min-width: $breakpoint) {
         position: absolute;
