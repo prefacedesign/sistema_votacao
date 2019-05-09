@@ -183,8 +183,11 @@ article {
     & + label {
       margin-top: mod(3/2);
     }
+    &:hover,
     &.selected {
       border-color: black;
+    }
+    &.selected {
       font-weight: 700;
     }
   }
