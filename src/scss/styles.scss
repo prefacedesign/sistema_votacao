@@ -75,26 +75,48 @@ article {
   }
 }
 
-.next-question {
+.questions-navigation {
+  display: flex;
+  justify-content: space-between;
   margin-top: mod(6);
-  float: right;
+}
+
+.question-nav-link {
   color: $txt_col;
   text-decoration: none;
   @extend .big-font;
-  &:after {
-    content: "→";
+  &:after,
+  &:before {
     font-size: 32px;
-    padding-left: mod(1);
     position: relative;
     top: 4px;
-    right: 0;
     transition: all 0.5s ease;
   }
-  &:hover {
-    &:after {
-      right: mod(-1);
-      transition: all 0.1s ease;
-    }
+  &:hover:after,
+  &:hover:before {
+    transition: all 0.1s ease;
+  }
+}
+
+.previous-question {
+  &:before {
+    content: "←";
+    padding-right: mod(1);
+    left: 0;
+  }
+  &:hover:before {
+    left: mod(-1);
+  }
+}
+
+.next-question {
+  &:after {
+    content: "→";
+    padding-left: mod(1);
+    right: 0;
+  }
+  &:hover:after {
+    right: mod(-1);
   }
 }
 

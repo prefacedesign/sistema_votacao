@@ -61,15 +61,27 @@
         </div>
       </div>
 
-      <template v-if="this.$route.params.index < json.content_flow.length - 1">
-        <router-link
-          class="next-question"
-          :to="'/quest/' + (parseInt(this.$route.params.index)+1)"
-        >Próxima pergunta</router-link>
-      </template>
-      <template v-else>
-        <router-link class="next-question" to="/fim">Terminar questionário</router-link>
-      </template>
+      <div class="questions-navigation">
+        <div>
+          <template v-if="this.$route.params.index > 0">
+            <router-link
+              :to="'/quest/' + (parseInt(this.$route.params.index)-1)"
+              class="question-nav-link previous-question"
+            ></router-link>
+          </template>
+        </div>
+        <div>
+          <template v-if="this.$route.params.index < json.content_flow.length - 1">
+            <router-link
+              class="question-nav-link next-question"
+              :to="'/quest/' + (parseInt(this.$route.params.index)+1)"
+            >Próxima pergunta</router-link>
+          </template>
+          <template v-else>
+            <router-link class="question-nav-link next-question" to="/fim">Terminar questionário</router-link>
+          </template>
+        </div>
+      </div>
     </article>
   </div>
 </template>
