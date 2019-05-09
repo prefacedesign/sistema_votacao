@@ -59,7 +59,8 @@ h2 {
   font-weight: 400;
 }
 
-#intro header {
+#intro header,
+#inv header {
   margin-bottom: mod(4);
   h1 {
     @extend .big-font;
@@ -258,11 +259,23 @@ article {
   min-height: mod(16);
 }
 
-.vote-code {
+.message-box {
   background: mix($light_color, white);
   padding: mod(3);
   border-radius: mod(2/3);
   margin-bottom: mod(3);
+}
+
+.error-message {
+  @extend .message-box;
+  background: mix(mix($light_color, red), white);
+  p {
+    @extend .big-font;
+  }
+}
+
+.vote-code {
+  @extend .message-box;
   .hash {
     span {
       @extend .big-font;
