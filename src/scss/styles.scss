@@ -213,3 +213,13 @@ article {
     }
   }
 }
+
+.textarea-container textarea {
+  width: 100%;
+  border: 1px solid $light_color;
+  margin-top: mod(2);
+  padding: mod(2/3) mod(3/2);
+  font-family: "IBM Plex Mono", monospace;
+  @extend .big-font;
+  min-height: mod(16);
+}

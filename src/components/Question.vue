@@ -56,7 +56,9 @@
             {{r.text}}
           </label>
         </div>
-        <template v-if="currentQuestion.type == 'text_input'"></template>
+        <div class="textarea-container" v-if="currentQuestion.type == 'text_input'">
+          <textarea></textarea>
+        </div>
       </div>
 
       <template v-if="this.$route.params.index < json.content_flow.length - 1">
