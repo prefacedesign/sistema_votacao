@@ -238,6 +238,7 @@ article {
 
 .textarea-container textarea {
   width: 100%;
+  box-sizing: border-box;
   border: 1px solid $light_color;
   margin-top: mod(2);
   padding: mod(2/3) mod(3/2);
