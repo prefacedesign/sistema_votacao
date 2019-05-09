@@ -6,7 +6,9 @@
         <h2>{{json.form_sub_heading}}</h2>
       </header>
       <p v-for="paragraph in json.intro.text">{{paragraph}}</p>
-      <router-link class="next-question" to="/quest/0">Começar a responder</router-link>
+      <div class="questions-navigation">
+        <router-link class="question-nav-link next-question" to="/quest/0">Começar a responder</router-link>
+      </div>
     </article>
   </div>
 </template>
