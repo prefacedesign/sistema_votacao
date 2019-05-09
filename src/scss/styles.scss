@@ -79,6 +79,7 @@ article {
   display: flex;
   justify-content: space-between;
   margin-top: mod(6);
+  cursor: pointer;
 }
 
 .question-nav-link {
@@ -95,6 +96,16 @@ article {
   &:hover:after,
   &:hover:before {
     transition: all 0.1s ease;
+  }
+}
+
+.post-vote-link {
+  border: 2px solid black;
+  padding: mod(1) mod(2);
+  border-radius: mod(1/3);
+  &:hover {
+    background: black;
+    color: white;
   }
 }
 

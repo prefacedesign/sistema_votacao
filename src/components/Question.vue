@@ -78,7 +78,7 @@
             >Próxima pergunta</router-link>
           </template>
           <template v-else>
-            <router-link class="question-nav-link next-question" to="/fim">Terminar questionário</router-link>
+            <router-link class="question-nav-link post-vote-link" to="/fim">Enviar voto</router-link>
           </template>
         </div>
       </div>
