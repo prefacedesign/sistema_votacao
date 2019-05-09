@@ -223,3 +223,31 @@ article {
   @extend .big-font;
   min-height: mod(16);
 }
+
+.vote-code {
+  background: mix($light_color, white);
+  padding: mod(3);
+  border-radius: mod(2/3);
+  margin-bottom: mod(3);
+  .hash {
+    span {
+      @extend .big-font;
+      display: block;
+      text-align: center;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 300;
+      &:before,
+      &:after {
+        font-family: "IBM Plex Sans", sans-serif;
+      }
+      &:before {
+        padding-right: mod(3/2);
+        content: "\2192";
+      }
+      &:after {
+        padding-left: mod(3/2);
+        content: "\2190";
+      }
+    }
+  }
+}
