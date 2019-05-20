@@ -34,7 +34,7 @@
               type="radio"
               :name="currentQuestion.name"
               :value="r.value"
-              v-model="selectedRadio"
+              v-model="answers[currentQuestion.name]"
             >
             {{r.text}}
           </label>
@@ -44,20 +44,20 @@
             v-bind:key="'_' + index"
             :for="'checkbox-' + index"
             v-for="(r, index) in currentQuestion.options"
-            :class="{ selected : selectedCheckboxes.includes(r.value) }"
+            :class="{ selected : answers[currentQuestion.name].includes(r.value) }"
           >
             <input
               :id="'checkbox-' + index"
               type="checkbox"
               :name="currentQuestion.name + '-' + index"
               :value="r.value"
-              v-model="selectedCheckboxes"
+              v-model="answers[currentQuestion.name]"
             >
             {{r.text}}
           </label>
         </div>
         <div class="textarea-container" v-if="currentQuestion.type == 'text_input'">
-          <textarea></textarea>
+          <textarea v-model="answers[currentQuestion.name]"></textarea>
         </div>
       </div>
 
@@ -90,8 +90,34 @@
 import mock_json from "@/assets/mock_data.json";
 export default {
   data() {
+    var i;
+    var ans = {};
+    var n;
+
+    for (i = 0; i < mock_json.content_flow.length; i++) {
+      if (typeof mock_json.content_flow[i].name == "undefined") {
+        continue;
+      }
+
+      n = mock_json.content_flow[i].name;
+
+      switch (mock_json.content_flow[i].type) {
+        case "checkbox":
+          ans[n] = [];
+          break;
+        case "text_input":
+        case "radio":
+          ans[n] = "";
+          break;
+        default:
+          throw "Unrecognized input type";
+      }
+    }
+    console.log(ans);
+
     return {
       json: mock_json,
+      answers: ans,
       selectedRadio: "",
       selectedCheckboxes: []
     };
