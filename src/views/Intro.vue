@@ -23,19 +23,20 @@ export default {
     };
   },
   beforeRouteEnter: function (to, from, next) {
-    const Votes = Parse.Object.extend("Votes")
-    const vote = new Votes();
-
-    vote.set("answers", {"banana":"abacaxi"})
-
-    vote.save().then((savedVote) => {
-        console.log("sucessfully posted");
-        console.log(savedVote)
-        next();
-      },(error) =>{
-        console.log(error);
-        next();
-      });
+    // const Votes = Parse.Object.extend("Votes")
+    // const vote = new Votes();
+    //
+    // vote.set("answers", {"banana":"abacaxi"})
+    //
+    // vote.save().then((savedVote) => {
+    //     console.log("sucessfully posted");
+    //     console.log(savedVote)
+    //     next();
+    //   },(error) =>{
+    //     console.log(error);
+    //     next();
+    //   });
+    next();
   },
   name: "intro"
 };

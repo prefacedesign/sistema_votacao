@@ -27,13 +27,14 @@
             v-bind:key="'_' + index"
             :for="'radio-' + index"
             v-for="(r, index) in currentQuestion.options"
-            :class="{ selected : selectedRadio == r.value }"
+            :class="{ selected : answers[currentQuestion.name] == r.value }"
           >
             <input
               :id="'radio-' + index"
               type="radio"
               :name="currentQuestion.name"
               :value="r.value"
+              :disabled="status != 'filling_vote'"
               v-model="answers[currentQuestion.name]"
             >
             {{r.text}}
@@ -51,13 +52,14 @@
               type="checkbox"
               :name="currentQuestion.name + '-' + index"
               :value="r.value"
+              :disabled="status != 'filling_vote'"
               v-model="answers[currentQuestion.name]"
             >
             {{r.text}}
           </label>
         </div>
         <div class="textarea-container" v-if="currentQuestion.type == 'text_input'">
-          <textarea v-model="answers[currentQuestion.name]"></textarea>
+          <textarea :disabled="status != 'filling_vote'" v-model="answers[currentQuestion.name]"></textarea>
         </div>
       </div>
 
@@ -78,7 +80,7 @@
             >Próxima pergunta</router-link>
           </template>
           <template v-else>
-            <router-link class="question-nav-link post-vote-link" to="/fim">Enviar voto</router-link>
+            <a class="question-nav-link post-vote-link" @click="saveVote">Enviar voto</a>
           </template>
         </div>
       </div>
@@ -113,13 +115,13 @@ export default {
           throw "Unrecognized input type";
       }
     }
-    console.log(ans);
 
     return {
       json: mock_json,
       answers: ans,
       selectedRadio: "",
-      selectedCheckboxes: []
+      selectedCheckboxes: [],
+      status: "filling_vote"
     };
   },
   computed: {
@@ -136,6 +138,29 @@ export default {
         return 0;
       }
       return Math.round((100 * current) / this.json.content_flow.length);
+    }
+  },
+  methods: {
+    saveVote: function(event) {
+      const Votes = Parse.Object.extend("Votes")
+      const vote = new Votes();
+
+      if (this.status == "saving_vote") {
+        return;
+      }
+
+      this.status = "saving_vote";
+
+      vote.set("answers", this.answers);
+
+      return vote.save().then((savedVote) => {
+        console.log("sucessfully posted");
+        console.log(savedVote);
+      },(error) =>{
+        console.log(error);
+        alert(error);
+        this.status = "filling_vote";
+      });
     }
   },
   name: "Question"
