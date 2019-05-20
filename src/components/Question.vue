@@ -156,6 +156,8 @@ export default {
       return vote.save().then((savedVote) => {
         console.log("sucessfully posted");
         console.log(savedVote);
+
+        this.$router.push('/fim/'+ savedVote.id.substr(0,3) + '.' + savedVote.id.substr(3,3));
       },(error) =>{
         console.log(error);
         alert(error);

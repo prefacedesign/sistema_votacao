@@ -15,7 +15,7 @@ export default new Router({
       component: Intro
     },
     {
-      path: "/fim",
+      path: "/fim/:receipt",
       name: "the-end",
       component: TheEnd
     },

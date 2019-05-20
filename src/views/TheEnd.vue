@@ -37,7 +37,7 @@ export default {
   data() {
     return {
       json: mock_json,
-      secretKey: "01d.ae3"
+      secretKey: this.$route.params.receipt
     };
   },
   name: "the-end"
