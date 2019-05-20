@@ -22,6 +22,21 @@ export default {
       json: mock_json
     };
   },
+  beforeRouteEnter: function (to, from, next) {
+    const Votes = Parse.Object.extend("Votes")
+    const vote = new Votes();
+
+    vote.set("answers", {"banana":"abacaxi"})
+
+    vote.save().then((savedVote) => {
+        console.log("sucessfully posted");
+        console.log(savedVote)
+        next();
+      },(error) =>{
+        console.log(error);
+        next();
+      });
+  },
   name: "intro"
 };
 </script>
