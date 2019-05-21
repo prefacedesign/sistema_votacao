@@ -67,7 +67,7 @@
         <div>
           <template v-if="this.$route.params.index > 0">
             <router-link
-              :to="'/quest/' + (parseInt(this.$route.params.index)-1)"
+              :to="backUrl"
               class="question-nav-link previous-question"
             ></router-link>
           </template>
@@ -76,7 +76,7 @@
           <template v-if="this.$route.params.index < json.content_flow.length - 1">
             <router-link
               class="question-nav-link next-question"
-              :to="'/quest/' + (parseInt(this.$route.params.index)+1)"
+              :to="nextUrl"
             >Próxima pergunta</router-link>
           </template>
           <template v-else>
@@ -138,6 +138,12 @@ export default {
         return 0;
       }
       return Math.round((100 * current) / this.json.content_flow.length);
+    },
+    nextUrl: function () {
+      return '/quest/' + encodeURIComponent(this.$route.params.email) + '/' + (1 + parseInt(this.$route.params.index));
+    },
+    backUrl: function () {
+      return '/quest/'+ encodeURIComponent(this.$route.params.email) + '/' + (-1 + parseInt(this.$route.params.index));
     }
   },
   methods: {
@@ -152,6 +158,7 @@ export default {
       this.status = "saving_vote";
 
       vote.set("answers", this.answers);
+      vote.set("voterEmail", atob(this.$route.params.email));
 
       return vote.save().then((savedVote) => {
         console.log("sucessfully posted");
