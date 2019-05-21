@@ -7,7 +7,7 @@ Parse.Cloud.define("hello", function(request, response){
 
 
 Parse.Cloud.define("getBallotBox", function (request, response) {
-	
+
 	response.success({
 		"verdura": "alface"
 	});
@@ -41,3 +41,45 @@ Parse.Cloud.beforeSave("Voters", (request, response) => {
 	return;
 });
 
+
+Parse.Cloud.beforeSave("Votes", (request, response) => {
+	// var query = new Parse.Query('Voters');
+	//
+	// query.notEqualTo('voted', true);
+	// query.equalTo('email', request.object.get('voterEmail'));
+
+	const voterQuery = new Parse.Query('Voters');
+	voterQuery.equalTo('email', request.object.get('voterEmail'));
+	voterQuery.notEqualTo('voted', true);
+
+	voterQuery.find({useMasterKey:true}).then(function(results) {
+		if (results.length == 0) {
+			response.error("Usuário já votou, não pode votar duas vezes!");
+			return;
+		}
+
+		response.success();
+	});
+});
+
+
+Parse.Cloud.afterSave("Votes", (request, response) => {
+	var query = new Parse.Query('Voters');
+
+	query.equalTo('email', request.object.get('voterEmail'));
+
+	query.first({useMasterKey:true}).then(function(result) {
+		if (typeof result == "undefined") {
+			response.error("Não conseguiu achar request.object.get('voterEmail'), para atualizar!");
+			return;
+		}
+
+		result.set("voted", true);
+
+		result.save(null, {useMasterKey: true}).then(function(saveResult) {
+			//log.info('Custom log ' + JSON.stringify(saveResult.object))
+			response.success();
+		});
+	});
+	response.error("opa não conseguiu salvar o voto de " + request.object.get('voterEmail'));
+});
