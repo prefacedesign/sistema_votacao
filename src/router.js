@@ -11,11 +11,16 @@ export default new Router({
   routes: [
     {
       path: "/",
+      name: "default"
+      //redirect: "/votar/email"
+    },
+    {
+      path: "/votar/:email",
       name: "intro",
       component: Intro
     },
     {
-      path: "/fim",
+      path: "/fim/:receipt",
       name: "the-end",
       component: TheEnd
     },
@@ -25,7 +30,7 @@ export default new Router({
       component: InvalidHash
     },
     {
-      path: "/quest/:index",
+      path: "/quest/:email/:index",
       name: "question",
       component: Question
     }
