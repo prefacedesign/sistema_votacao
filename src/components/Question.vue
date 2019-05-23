@@ -77,7 +77,7 @@
             <router-link
               class="question-nav-link next-question"
               :to="nextUrl"
-            >Próxima pergunta</router-link>
+            >Avançar</router-link>
           </template>
           <template v-else>
             <a class="question-nav-link post-vote-link" @click="saveVote">Enviar voto</a>
