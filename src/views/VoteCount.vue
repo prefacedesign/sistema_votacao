@@ -35,6 +35,22 @@
           <td>{{vote.hash}}</td>
         </tr>
       </table>
+
+      <h2>Lista de presença</h2>
+
+      <table>
+        <tr>
+          <th>Nome</th>
+          <th>Votou?</th>
+        </tr>
+        <tr v-for="(voter, index) in prettyVoters" :key="'voter-' + index">
+          <td>{{voter.name}} {{voter.surname}}</td>
+          <td>
+            <template v-if="voter.voted">Sim</template>
+            <template v-else>Não</template>
+          </td>
+        </tr>
+      </table>
     </div>
     <!-- <p v-for="(vote, index) in votes" :key="'vote-' + index">{{vote}}</p> -->
     <!-- <p v-for="(voter, index) in voters" :key="'voter-' + index">{{voter}}</p> -->
@@ -53,6 +69,24 @@ export default {
     };
   },
   computed: {
+    prettyVoters: function() {
+      let auxVoters = [];
+      this.voters.forEach(voter => {
+        let voted = true;
+        if (typeof voter.attributes.voted === "undefined") {
+          voted = false;
+        }
+        auxVoters.push({
+          name: voter.attributes.name,
+          surname: voter.attributes.surname,
+          voted: voted
+        });
+      });
+      auxVoters.sort((a, b) =>
+        a.name > b.name ? 1 : b.name > a.name ? -1 : 0
+      );
+      return auxVoters;
+    },
     prettyVotes: function() {
       let auxVotes = [];
       this.votes.forEach(vote => {
