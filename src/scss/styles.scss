@@ -345,3 +345,11 @@ article {
     }
   }
 }
+
+.credits {
+  margin-top: mod(12);
+  margin-bottom: mod(-10);
+  p {
+    font-size: 12px;
+  }
+}

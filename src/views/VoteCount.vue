@@ -54,8 +54,13 @@
         </tr>
       </table>
     </div>
-    <!-- <p v-for="(vote, index) in votes" :key="'vote-' + index">{{vote}}</p> -->
-    <!-- <p v-for="(voter, index) in voters" :key="'voter-' + index">{{voter}}</p> -->
+
+    <div class="credits">
+      <p>
+        Plataforma criada pela
+        <a href="//www.preface.com.br" target="_blank">Preface</a>.
+      </p>
+    </div>
   </div>
 </template>
 
