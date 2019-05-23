@@ -5,6 +5,26 @@
       <h3>Compilação dos votos</h3>
     </header>
     <div class="results-compilation">
+      <h2>Sumário dos votos</h2>
+      <table>
+        <tr>
+          <th>Resposta</th>
+          <th>Qtd</th>
+          <th>%</th>
+        </tr>
+        <tr v-for="(answer, index) in voteSummary" :key="'answer-' + index">
+          <td>{{answer.text}}</td>
+          <td>{{answer.n}}</td>
+          <td>{{Math.round(100*answer.p)}}%</td>
+        </tr>
+        <tr class="sum">
+          <td></td>
+          <td>{{answerCount}}</td>
+          <td></td>
+        </tr>
+      </table>
+
+      <h2>Tabela de votos</h2>
       <table>
         <tr>
           <th>Você concorda com a chapa apresentada?</th>
@@ -46,6 +66,28 @@ export default {
       auxVotes.sort((a, b) => (a.hash > b.hash ? 1 : b.hash > a.hash ? -1 : 0));
 
       return auxVotes;
+    },
+    answerCount: function() {
+      let n = 0;
+      for (var key in this.voteSummary) {
+        n += this.voteSummary[key].n;
+      }
+      return n;
+    },
+    voteSummary: function() {
+      let answers = {};
+      let total = 0;
+      this.prettyVotes.forEach(vote => {
+        if (!(vote.value in answers)) {
+          answers[vote.value] = { text: vote.text, n: 0 };
+        }
+        answers[vote.value].n += 1;
+        total += 1;
+      });
+      for (var key in answers) {
+        answers[key].p = answers[key].n / total;
+      }
+      return answers;
     }
   },
   beforeRouteEnter: function(to, from, next) {

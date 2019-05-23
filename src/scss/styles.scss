@@ -312,6 +312,10 @@ article {
 }
 
 .results-compilation {
+  h2 {
+    text-transform: uppercase;
+    letter-spacing: 0.05ch;
+  }
   table {
     $p: mod(1);
     width: calc(100% + #{2 * $p});
@@ -323,11 +327,18 @@ article {
       text-align: left;
       @extend .default-font;
     }
+    tr.sum {
+      border-top: 2px solid black;
+      font-weight: bold;
+    }
     th {
       font-weight: bold;
     }
     tr:nth-child(even) {
       background: rgb(233, 236, 235);
+    }
+    & + h2 {
+      margin-top: mod(6);
     }
   }
 }
