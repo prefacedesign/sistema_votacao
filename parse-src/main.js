@@ -20,8 +20,11 @@ Parse.Cloud.beforeSave("Voters", (request, response) => {
 	// 	return;
 	// }
 
-	request.object.set('authKey', crypto.createHash('md5').update( request.object.get('email') + 'kj9kazsf87').digest("hex"));
-	
+	//request.object.set('authKey', crypto.createHash('md5').update( request.object.get('email') + 'kj9kazsf87').digest("hex"));
+
+	var buff = new Buffer(request.object.get('email'),'utf8');
+	request.object.set('authKey', encodeURIComponent(buff.toString('base64')));
+
 	var query = new Parse.Query('Voters');
 
 	if (typeof request.object.id == "string" && request.object.id.length > 0) {
