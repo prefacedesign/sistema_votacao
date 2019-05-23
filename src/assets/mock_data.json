@@ -1,50 +1,31 @@
 {
-  "form_heading": "Eleições Sbfoton",
-  "form_sub_heading": "Chapa 2019—2020",
+  "form_heading": "Eleições SBFoton",
+  "form_sub_heading": "Chapa 2019—2021",
   "intro": {
     "text": [
       "Caro associado,",
-      "Ipsum velenis et hari conecum net ipicipsam quam, non pre, quam qui que cuptur saperci isquae sam ulles el id maxima in poremquist ullecest lam, sincto ex est, cuscium aute esOfficimusam, ute quae doluptatus dolo dolorum ipsuntum in nienia deleseri optat.",
-      "Turpis vestibulum volutpat vestibulum a massa porttitor curae varius mi nam risus ac maecenas mi porttitor convallis suspendisse hendrerit potenti a a porta viverra. Dolor ullamcorper molestie ipsum eu placerat dis laoreet a felis sed a montes vestibulum facilisi viverra adipiscing nunc conubia tincidunt praesent parturient vulputate vivamus condimentum diam fermentum eu commodo. Luctus eget vehicula est sodales varius eu metus a ullamcorper nibh tincidunt a sem ridiculus montes ullamcorper odio euismod suscipit. Adipiscing dui faucibus sapien vulputate parturient rhoncus malesuada sapien augue scelerisque parturient condimentum a magnis ac non phasellus interdum suspendisse erat suspendisse."
+      "Segue a chapa formada para ser votada:",
+      ".",
+      "DIRETORIA",
+      "Presidente: Daniel Moutinho Pataca (Engenheiro / Professor / UNIP)",
+      "Diretor Administrativo: André Luiz Nunes de Souza (Engenheiro / Pesquisador / CPqD)"
     ]
   },
   "ending": {
     "text": [
-      "Agradecemos por sua participação. Os resultados serão publicados no dia 3/5."
+      "Agradecemos por sua participação. Os resultados será enviado a partir das 16h do dia 24/05/2019."
     ]
   },
   "content_flow": [
     {
       "type": "radio",
-      "main_text": "Você está em um deserto andando sozinho e de repente olha para baixo e vê uma tartaruga. Você se abaixa e a vira de costas para cima. A barriga dela fica queimando ao sol e ela balança as pernas, tentando se virar, mas não consegue sem sua ajuda. Você vai ajudá-la?",
-      "name": "pg1",
+      "main_text": "Você concorda com a chapa apresentada?",
+      "name": "concorda_chapa",
       "options": [
-        { "text": "Sim", "value": "1" },
-        { "text": "Não", "value": "2" },
-        { "text": "Prefiro não responder", "value": "3" }
+        { "text": "Sim, concordo com a chapa apresentada", "value": "sim" },
+        { "text": "Não, não concordo com a chapa apresentada", "value": "nao" },
+        { "text": "Me abstenho", "value": "abstencao" }
       ]
-    },
-    {
-      "type": "text",
-      "main_text": "Lorem Ipsum",
-      "sub_text": "Lorem Ipsum"
-    },
-    {
-      "type": "checkbox",
-      "main_text": "Lorem Ipsum",
-      "sub_text": "Lorem Ipsum",
-      "name": "pg2",
-      "options": [
-        { "text": "Option 1", "value": "1" },
-        { "text": "Option 2", "value": "2" },
-        { "text": "Option 3", "value": "3" }
-      ]
-    },
-    {
-      "type": "text_input",
-      "main_text": "Lorem Ipsum",
-      "sub_text": "",
-      "name": "pg3"
     }
   ]
 }
