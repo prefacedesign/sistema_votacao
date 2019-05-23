@@ -5,7 +5,9 @@
       <h3>Compilação dos votos</h3>
     </header>
     <div class="results-compilation">
-      <h2>Sumário dos votos</h2>
+      <h2>Resumo da votação</h2>
+      <p>Dos {{voterCount.possibleVoters}} membros convidados a votar, {{voterCount.votersWhoVoted}} ({{Math.round(100*voterCount.voterTurnout)}}%) lançaram seus votos.</p>
+      <p>Os resultados foram os seguintes:</p>
       <table>
         <tr>
           <th>Resposta</th>
@@ -18,13 +20,13 @@
           <td>{{Math.round(100*answer.p)}}%</td>
         </tr>
         <tr class="sum">
-          <td></td>
-          <td>{{answerCount}}</td>
-          <td></td>
+          <!-- <td></td> -->
+          <td colspan="3">Total de votos: {{answerCount}}</td>
+          <!-- <td></td> -->
         </tr>
       </table>
 
-      <h2>Tabela de votos</h2>
+      <h2>Tabela completa de votos</h2>
       <table>
         <tr>
           <th>Você concorda com a chapa apresentada?</th>
@@ -100,6 +102,21 @@ export default {
       auxVotes.sort((a, b) => (a.hash > b.hash ? 1 : b.hash > a.hash ? -1 : 0));
 
       return auxVotes;
+    },
+    voterCount: function() {
+      let votersWhoVoted = 0,
+        possibleVoters = 0;
+      this.prettyVoters.forEach(voter => {
+        if (voter.voted) {
+          votersWhoVoted += 1;
+        }
+        possibleVoters += 1;
+      });
+      return {
+        votersWhoVoted,
+        possibleVoters,
+        voterTurnout: votersWhoVoted / possibleVoters
+      };
     },
     answerCount: function() {
       let n = 0;

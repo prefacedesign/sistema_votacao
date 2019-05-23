@@ -315,6 +315,9 @@ article {
   h2 {
     text-transform: uppercase;
     letter-spacing: 0.05ch;
+    & + p {
+      margin-top: mod(1);
+    }
   }
   table {
     $p: mod(1);
@@ -328,8 +331,8 @@ article {
       @extend .default-font;
     }
     tr.sum {
-      border-top: 2px solid black;
-      font-weight: bold;
+      background: black;
+      color: white;
     }
     th {
       font-weight: bold;
