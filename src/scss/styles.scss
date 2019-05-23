@@ -298,3 +298,36 @@ article {
     }
   }
 }
+
+#results {
+  h1 {
+    font-weight: 400;
+  }
+  h3 {
+    margin-top: mod(1/2);
+    margin-bottom: mod(4);
+    font-weight: 300;
+    @extend .big-font;
+  }
+}
+
+.results-compilation {
+  table {
+    $p: mod(1);
+    width: calc(100% + #{2 * $p});
+    position: relative;
+    left: -$p;
+    th,
+    td {
+      padding: mod(1) $p;
+      text-align: left;
+      @extend .default-font;
+    }
+    th {
+      font-weight: bold;
+    }
+    tr:nth-child(even) {
+      background: rgb(233, 236, 235);
+    }
+  }
+}
