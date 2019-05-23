@@ -7,12 +7,12 @@
     <div class="results-compilation">
       <table>
         <tr>
-          <th>Hash do voto</th>
           <th>Você concorda com a chapa apresentada?</th>
+          <th>Hash do voto</th>
         </tr>
         <tr v-for="(vote, index) in prettyVotes" :key="'vote-' + index">
-          <td>{{vote.hash}}</td>
           <td>{{vote.text}}</td>
+          <td>{{vote.hash}}</td>
         </tr>
       </table>
     </div>
@@ -43,6 +43,8 @@ export default {
           hash: this.prettyHash(vote.id)
         });
       });
+      auxVotes.sort((a, b) => (a.hash > b.hash ? 1 : b.hash > a.hash ? -1 : 0));
+
       return auxVotes;
     }
   },
